@@ -3,6 +3,8 @@ import type { AppProps } from "next/app";
 
 import localFont from "next/font/local";
 import { DM_Sans } from "next/font/google";
+import Navbar from "@/comps/Navbar";
+import Footer from "@/comps/Footer";
 
 const dmSansFont = DM_Sans({
   subsets: ["latin"],
@@ -34,6 +36,14 @@ const integralFont = localFont({
       path: "../../public/fonts/IntegralCF-Bold.woff",
       weight: "700",
     },
+    {
+      path: "../../public/fonts/IntegralCF-ExtraBold.woff",
+      weight: "800",
+    },
+    {
+      path: "../../public/fonts/IntegralCF-Heavy.woff",
+      weight: "900",
+    },
   ],
   variable: "--font-integral",
 });
@@ -43,7 +53,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <main
       className={`${avertaFont.variable} ${integralFont.variable} ${dmSansFont.variable}`}
     >
+      <Navbar />
       <Component {...pageProps} />
+      <Footer />
     </main>
   );
 }
