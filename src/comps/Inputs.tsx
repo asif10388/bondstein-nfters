@@ -18,7 +18,7 @@ export const TextInput = ({
 }: ITextInputProps) => {
   return (
     <div
-      className={`h-full flex items-center border-2 border-gray-100 rounded-full py-2 px-4 ${classNames}`}
+      className={`h-full flex items-center border-2 border-gray-100 rounded-full py-3 px-5 ${classNames}`}
     >
       <input
         placeholder={placeholder}

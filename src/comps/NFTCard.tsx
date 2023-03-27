@@ -7,17 +7,17 @@ interface NFTCardProps {
   quantity: string;
   timeLeft: string;
 }
-
+//lg:w-1/4 md:w-1/2 w-full
 const NFTCard = ({ name, image, price, quantity, timeLeft }: NFTCardProps) => {
   return (
-    <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-      <div className="bg-white w-full p-4 rounded-xl">
-        <a className="block relative h-48 rounded-lg overflow-hidden">
+    <div className="w-full md:w-[21rem] mb-4">
+      <div className="bg-white w-full rounded-xl p-4">
+        <a className="block relative h-64 rounded-lg overflow-hidden">
           <Image
             priority
             src={image}
-            width={380}
-            height={260}
+            width={300}
+            height={300}
             className="object-cover object-center w-full h-full"
             alt="NFT Image"
           />

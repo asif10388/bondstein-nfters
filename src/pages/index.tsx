@@ -1,4 +1,5 @@
 import Features from "@/comps/Features";
+import Hero from "@/comps/Hero";
 import NFTGrid from "@/comps/NFTGrid";
 import Head from "next/head";
 import Image from "next/image";
@@ -13,6 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Hero />
         <Features />
         <NFTGrid />
       </main>

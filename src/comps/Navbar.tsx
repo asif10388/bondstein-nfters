@@ -45,7 +45,7 @@ const Navbar = () => {
 
   return (
     <header className="border-b border-gray-100 w-full">
-      <div className="container mx-auto flex flex-wrap p-5 items-center md:justify-center">
+      <div className="container mx-auto flex flex-wrap p-5 items-center md:justify-center lg:justify-between">
         <div className="w-full md:w-auto flex items-center mb-5 lg:mb-0 justify-between">
           <a className="cursor-pointer transition ease-in duration-200 hover:rotate-[-10deg] font-integral text-nft-purple text-2xl font-bold mr-12 -mt-2">
             NFTERS

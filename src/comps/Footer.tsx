@@ -151,7 +151,7 @@ const Footer = () => {
               Join our mailing list to stay in the loop with our newest feature
               releases, NFT drops, and tips and tricks for navigating NFTs.
             </p>
-            <div className="flex flex-wrap w-full">
+            <div className="md:-ml-1 block w-full">
               <TextInput
                 placeholder="Enter Your Email Address"
                 hasButton
