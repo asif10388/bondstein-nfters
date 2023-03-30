@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState } from "react";
 import Button from "./Button";
 
 interface ITextInputProps {
@@ -16,13 +17,19 @@ export const TextInput = ({
   hasButton,
   buttonText,
 }: ITextInputProps) => {
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
     <div
-      className={`h-full flex items-center border-2 border-gray-100 rounded-full py-3 px-5 ${classNames}`}
+      className={`${
+        isFocused ? `border-nft-blue` : `border-gray-100`
+      } transition-colors ease-in duration-200 h-full flex items-center border-2 rounded-full py-2 px-4 ${classNames}`}
     >
       <input
         placeholder={placeholder}
         type="text"
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
         className={`w-full text-xs md:text-sm font-dm-sans focus:outline-none`}
       />
       {hasIcon && (
@@ -36,7 +43,10 @@ export const TextInput = ({
       )}
 
       {hasButton && (
-        <Button tertiary classNames="ml-4 whitespace-nowrap">
+        <Button
+          tertiary
+          classNames="transition-colors ease-in duration-200 hover:bg-nft-dark-blue ml-4 whitespace-nowrap"
+        >
           {buttonText}
         </Button>
       )}

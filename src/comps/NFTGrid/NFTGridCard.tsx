@@ -7,12 +7,22 @@ interface NFTCardProps {
   quantity: string;
   timeLeft: string;
 }
-//lg:w-1/4 md:w-1/2 w-full
+
+const pfps = [
+  "/images/pfp.jpg",
+  "/images/pfp.jpg",
+  "/images/pfp.jpg",
+  "/images/pfp.jpg",
+];
+
 const NFTCard = ({ name, image, price, quantity, timeLeft }: NFTCardProps) => {
   return (
-    <div className="w-full md:w-[21rem] mb-4">
-      <div className="bg-white w-full rounded-xl p-4">
-        <a className="block relative h-64 rounded-lg overflow-hidden">
+    <div className="lg:w-1/4 md:w-1/2 max-w-xl mb-4 p-4 font-dm-sans">
+      <div className="bg-white w-full rounded-2xl p-3">
+        <a
+          href="#"
+          className="block min-w-[20rem] max-w-[20rem] md:min-w-fit h-64 rounded-2xl overflow-hidden"
+        >
           <Image
             priority
             src={image}
@@ -22,6 +32,20 @@ const NFTCard = ({ name, image, price, quantity, timeLeft }: NFTCardProps) => {
             alt="NFT Image"
           />
         </a>
+        <div className="ml-4 flex -mt-5 z-50">
+          {pfps.map((pfp, index) => (
+            <Image
+              key={index}
+              alt="PFP"
+              width={100}
+              height={100}
+              src={pfp}
+              className={`transition-all ease-in duration-200 hover:scale-[1.3] w-10 h-10 rounded-full object-cover ${
+                index > 0 && `-ml-3`
+              }`}
+            />
+          ))}
+        </div>
         <div className="mt-4">
           <h2 className="text-gray-900 title-font text-lg font-medium">
             {name}
@@ -40,11 +64,13 @@ const NFTCard = ({ name, image, price, quantity, timeLeft }: NFTCardProps) => {
             <p className="text-xs text-gray-400">{quantity}</p>
           </div>
 
-          <div className="font-dm-sans mt-4 flex justify-between text-nft-light-purple">
+          <div className="mt-4 flex items-center justify-between text-nft-light-purple">
             <span className="font-medium text-xs px-3 py-2 bg-gray-100 rounded-full">
               {timeLeft} left
             </span>
-            <button>Place a bid</button>
+            <button className="font-medium hover:text-white hover:bg-nft-light-purple transition-colors ease-in duration-200 rounded-lg px-3 py-2">
+              Place a bid
+            </button>
           </div>
         </div>
       </div>

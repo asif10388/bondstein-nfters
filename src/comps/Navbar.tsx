@@ -1,9 +1,8 @@
-import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "react-feather";
 
-import Button from "./Button";
-import { TextInput } from "./Inputs";
+import Button from "./Shared/Button";
+import { TextInput } from "./Shared/Inputs";
 
 interface ILink {
   name: string;
@@ -11,6 +10,7 @@ interface ILink {
 }
 
 interface INavLinkProps {
+  href: string;
   children: React.ReactNode;
   classNames?: string;
 }
@@ -30,10 +30,11 @@ const links = [
   },
 ];
 
-const NavLink = ({ classNames, children }: INavLinkProps) => {
+const NavLink = ({ href, classNames, children }: INavLinkProps) => {
   return (
     <a
-      className={`${classNames} cursor-pointer transition ease-in duration-200 hover:text-nft-purple hover:border-b-4 border-nft-purple`}
+      href={href}
+      className={`${classNames} custom__nav-link relative cursor-pointer transition ease-in duration-200 hover:text-nft-purple`}
     >
       {children}
     </a>
@@ -41,15 +42,21 @@ const NavLink = ({ classNames, children }: INavLinkProps) => {
 };
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<Boolean>(false);
 
   return (
     <header className="border-b border-gray-100 w-full">
-      <div className="container mx-auto flex flex-wrap p-5 items-center md:justify-center lg:justify-between">
-        <div className="w-full md:w-auto flex items-center mb-5 lg:mb-0 justify-between">
-          <a className="cursor-pointer transition ease-in duration-200 hover:rotate-[-10deg] font-integral text-nft-purple text-2xl font-bold mr-12 -mt-2">
+      <div className="container mx-auto flex flex-wrap p-5 items-center md:justify-center xl:justify-between">
+        {/* Desktop Menu Start */}
+        <div className="w-full md:w-auto flex items-center mb-5 xl:mb-0 justify-between">
+          <a
+            href="#"
+            className="cursor-pointer transition ease-in duration-200 hover:rotate-[-10deg] font-integral text-nft-purple text-2xl font-bold mr-12 -mt-2"
+          >
             NFTERS
           </a>
+
+          {/* Showing the hamburger icon based on state */}
           {open === true ? (
             <X
               className="md:hidden w-10 h-10 text-nft-purple"
@@ -64,13 +71,13 @@ const Navbar = () => {
 
           <nav className="font-dm-sans font-medium hidden md:block">
             {links.map((link: ILink) => (
-              <NavLink key={link.name} classNames="mr-10">
+              <NavLink href="#" key={link.name} classNames="mr-10">
                 {link.name}
               </NavLink>
             ))}
           </nav>
         </div>
-        <div className="items-center hidden md:flex">
+        <div className="items-center hidden md:flex -ml-4 xl:ml-0">
           <TextInput placeholder="Search" hasIcon classNames="mr-5" />
           <Button primary classNames={`mr-5`}>
             Upload
@@ -79,28 +86,33 @@ const Navbar = () => {
         </div>
 
         {/* Hamburger Menu Start*/}
-        <div className="w-full md:hidden">
+        <div className="w-full md:hidden overflow-clip">
           <nav
             className={`${
-              open ? `flex flex-col` : `hidden`
-            } font-dm-sans font-medium`}
+              open ? `flex flex-col` : `mt-[-15rem]`
+            } transition-all ease-in duration-200 font-dm-sans font-medium`}
           >
             {links.map((link: ILink) => (
-              <NavLink key={link.name} classNames="mb-5">
+              <NavLink href="#" key={link.name} classNames="mb-5 block">
                 {link.name}
               </NavLink>
             ))}
           </nav>
 
-          <div className={`${open ? `flex flex-col` : `hidden`}`}>
+          <div
+            className={`${
+              open ? `flex flex-col` : `mt-[-15rem]`
+            } transition-all ease-in duration-200 `}
+          >
             <TextInput placeholder="Search" hasIcon classNames="mb-5 w-full" />
             <Button primary classNames={`mb-5 w-full`}>
               Upload
             </Button>
-            <Button secondary>Connect Wallet</Button>
+            <Button secondary classNames="block w-full">
+              Connect Wallet
+            </Button>
           </div>
         </div>
-        {/* Hamburger Menu End*/}
       </div>
     </header>
   );

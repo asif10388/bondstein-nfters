@@ -1,8 +1,10 @@
+import FeaturedCollection from "@/comps/FeaturedCollection/FeaturedCollection";
+import CallToAction from "@/comps/CallToAction/CallToAction";
 import Features from "@/comps/Features";
-import Hero from "@/comps/Hero";
-import NFTGrid from "@/comps/NFTGrid";
+import Hero from "@/comps/Hero/Hero";
+import NFTGrid from "@/comps/NFTGrid/NFTGrid";
+import TopCollections from "@/comps/TopCollections/TopCollections";
 import Head from "next/head";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -16,8 +18,17 @@ export default function Home() {
       <main>
         <Hero />
         <Features />
+        <TopCollections />
+        <FeaturedCollection />
+        <CallToAction />
         <NFTGrid />
       </main>
     </>
   );
+}
+
+export function getStaticProps() {
+  return {
+    props: {},
+  };
 }

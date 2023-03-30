@@ -7,6 +7,7 @@ module.exports = {
         "nft-purple": "#3D00B7",
         "dark-nft-purple": "#310092",
         "nft-blue": "#2639ED",
+        "nft-dark-blue": "#1e2ebe",
         "nft-light-purple": "#5539A8",
         "nft-gray": "#D9E0EC",
       },

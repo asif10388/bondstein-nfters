@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { TextInput } from "./Inputs";
+import { TextInput } from "./Shared/Inputs";
 
 interface INavLinkProps {
   href: string;
@@ -97,10 +97,10 @@ const NavLink = ({ children, classNames, href }: INavLinkProps) => {
 const Footer = () => {
   return (
     <footer>
-      <div className="font-dm-sans container px-5 pt-24 pb-8 mx-auto">
+      <div className="font-dm-sans container px-5 pt-12 pb-8 mx-auto">
         <div className="flex flex-wrap order-first">
           <div className="md:w-1/3 w-full flex-shrink-0">
-            <a className="flex font-integral font-bold items-center ">
+            <a href="#" className="flex font-integral font-bold items-center ">
               <span className="text-xl">NFTERS</span>
             </a>
             <p className="mt-4 text-sm text-gray-500 font-averta">
@@ -110,7 +110,11 @@ const Footer = () => {
             </p>
             <span className="inline-flex sm:ml-auto mt-4 justify-center sm:justify-start">
               {socialLinks.map((link) => (
-                <a href={link.href} key={link.name} className="mr-5">
+                <a
+                  href={link.href}
+                  key={link.name}
+                  className="transition-all ease-in duration-200 hover:scale-[1.3] mr-5"
+                >
                   <Image
                     priority
                     src={link.iconURL}
@@ -122,26 +126,36 @@ const Footer = () => {
               ))}
             </span>
           </div>
-          <div className="mt-4 md:mt-0 md:w-1/3 w-full flex md:justify-evenly order-last md:order-none mx-4 lg:mx-0">
+          <div className="flex-grow mt-4 md:mt-0 md:w-1/3 w-full flex md:justify-evenly order-last md:order-none mx-4 lg:mx-0">
             <div className="flex flex-col md:items-center mr-4 md:mr-0">
               <h2 className="font-bold text-xl mb-6">Market Place</h2>
-              <nav className="list-none mb-10">
+              <ul className="list-none mb-10">
                 {marketPlaceLinks.map((link) => (
                   <li key={link.name} className="mb-2">
-                    <NavLink href={link.href}>{link.name}</NavLink>
+                    <NavLink
+                      href={link.href}
+                      classNames="transition-colors ease-in duration-200 hover:text-nft-light-purple"
+                    >
+                      {link.name}
+                    </NavLink>
                   </li>
                 ))}
-              </nav>
+              </ul>
             </div>
             <div className="flex flex-col md:items-center">
               <h2 className="font-bold text-xl mb-6">My Account</h2>
-              <nav className="list-none mb-10">
+              <ul className="list-none mb-10">
                 {myAccountLinks.map((link) => (
                   <li key={link.name} className="mb-2">
-                    <NavLink href={link.href}>{link.name}</NavLink>
+                    <NavLink
+                      href={link.href}
+                      classNames="transition-colors ease-in duration-200 hover:text-nft-light-purple"
+                    >
+                      {link.name}
+                    </NavLink>
                   </li>
                 ))}
-              </nav>
+              </ul>
             </div>
           </div>
 

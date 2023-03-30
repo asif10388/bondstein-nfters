@@ -17,7 +17,7 @@ const Button = ({
 }: IButtonProps) => {
   return (
     <button
-      className={`transition ease-in duration-200 font-bold text-sm md:text-base inline-flex justify-center items-center py-2 md:py-3 px-5 md:px-10 focus:outline-red-400 rounded-full
+      className={`transition ease-in duration-200 font-bold text-sm inline-flex justify-center items-center py-2 md:py-3 px-4 md:px-6 focus:outline-red-400 rounded-full
       ${primary && `bg-nft-purple hover:bg-dark-nft-purple text-white`}
       ${
         secondary &&
