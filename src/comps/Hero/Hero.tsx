@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "../Shared/Button";
 import NFTHeroCard from "./NFTHeroCard";
 
@@ -14,8 +15,17 @@ import { EffectCards } from "swiper";
 const Hero = () => {
   return (
     <section>
-      <div className="container px-5 py-12 mx-auto flex flex-wrap">
-        <div className="flex flex-col flex-wrap xl:w-1/2 lg:w-2/3 w-full">
+      <div className="relative container px-5 py-12 mx-auto flex flex-wrap">
+        <div className="absolute bottom-20 left-0">
+          <Image
+            src="/images/dot.svg"
+            alt="dot design"
+            width={150}
+            height={150}
+            className="object-cover object-center rounded"
+          />
+        </div>
+        <div className="z-50 flex flex-col flex-wrap xl:w-1/2 lg:w-2/3 w-full">
           <div className="w-full mb-6">
             <h1 className="font-integral font-medium text-2xl md:text-4xl mb-2 text-center lg:text-left">
               Discover, and collect <br /> Digital Art NFTs
